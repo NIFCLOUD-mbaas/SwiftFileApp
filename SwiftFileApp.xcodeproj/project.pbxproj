@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		26847E901002F69410B16AF0 /* Pods_SwiftFileApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E35406D173A3AD9CFF3FAACA /* Pods_SwiftFileApp.framework */; };
+		48C95CA72624008900AAEBFE /* SwiftFileAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C95CA62624008900AAEBFE /* SwiftFileAppUITests.swift */; };
 		BDF8F3B91CFBC89C00904797 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF8F3B81CFBC89C00904797 /* AppDelegate.swift */; };
 		BDF8F3BB1CFBC89C00904797 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDF8F3BA1CFBC89C00904797 /* ViewController.swift */; };
 		BDF8F3BE1CFBC89C00904797 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF8F3BC1CFBC89C00904797 /* Main.storyboard */; };
@@ -15,7 +16,20 @@
 		BDF8F3C31CFBC89C00904797 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDF8F3C11CFBC89C00904797 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		48C95CA92624008900AAEBFE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BDF8F3AD1CFBC89C00904797 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BDF8F3B41CFBC89C00904797;
+			remoteInfo = SwiftFileApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		48C95CA42624008900AAEBFE /* SwiftFileAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftFileAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		48C95CA62624008900AAEBFE /* SwiftFileAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFileAppUITests.swift; sourceTree = "<group>"; };
+		48C95CA82624008900AAEBFE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E7BCFC08DED8F5246DBB374 /* Pods-SwiftFileApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFileApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFileApp/Pods-SwiftFileApp.debug.xcconfig"; sourceTree = "<group>"; };
 		BDF8F3B51CFBC89C00904797 /* SwiftFileApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFileApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BDF8F3B81CFBC89C00904797 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -29,6 +43,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		48C95CA12624008900AAEBFE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDF8F3B21CFBC89C00904797 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -40,6 +61,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48C95CA52624008900AAEBFE /* SwiftFileAppUITests */ = {
+			isa = PBXGroup;
+			children = (
+				48C95CA62624008900AAEBFE /* SwiftFileAppUITests.swift */,
+				48C95CA82624008900AAEBFE /* Info.plist */,
+			);
+			path = SwiftFileAppUITests;
+			sourceTree = "<group>";
+		};
 		583BD59EED70427DC369F16C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				BDF8F3B71CFBC89C00904797 /* SwiftFileApp */,
+				48C95CA52624008900AAEBFE /* SwiftFileAppUITests */,
 				BDF8F3B61CFBC89C00904797 /* Products */,
 				583BD59EED70427DC369F16C /* Pods */,
 				8C9A5E677D0FB4D967A00E78 /* Frameworks */,
@@ -71,6 +102,7 @@
 			isa = PBXGroup;
 			children = (
 				BDF8F3B51CFBC89C00904797 /* SwiftFileApp.app */,
+				48C95CA42624008900AAEBFE /* SwiftFileAppUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,6 +123,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		48C95CA32624008900AAEBFE /* SwiftFileAppUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 48C95CAD2624008900AAEBFE /* Build configuration list for PBXNativeTarget "SwiftFileAppUITests" */;
+			buildPhases = (
+				48C95CA02624008900AAEBFE /* Sources */,
+				48C95CA12624008900AAEBFE /* Frameworks */,
+				48C95CA22624008900AAEBFE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				48C95CAA2624008900AAEBFE /* PBXTargetDependency */,
+			);
+			name = SwiftFileAppUITests;
+			productName = SwiftFileAppUITests;
+			productReference = 48C95CA42624008900AAEBFE /* SwiftFileAppUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		BDF8F3B41CFBC89C00904797 /* SwiftFileApp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BDF8F3C71CFBC89C00904797 /* Build configuration list for PBXNativeTarget "SwiftFileApp" */;
@@ -118,13 +168,17 @@
 		BDF8F3AD1CFBC89C00904797 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 1240;
 				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "NIFTY Corporation";
 				TargetAttributes = {
+					48C95CA32624008900AAEBFE = {
+						CreatedOnToolsVersion = 12.4;
+						ProvisioningStyle = Automatic;
+						TestTargetID = BDF8F3B41CFBC89C00904797;
+					};
 					BDF8F3B41CFBC89C00904797 = {
 						CreatedOnToolsVersion = 7.2.1;
-						DevelopmentTeam = FKLWW9HU95;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -143,11 +197,19 @@
 			projectRoot = "";
 			targets = (
 				BDF8F3B41CFBC89C00904797 /* SwiftFileApp */,
+				48C95CA32624008900AAEBFE /* SwiftFileAppUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		48C95CA22624008900AAEBFE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDF8F3B31CFBC89C00904797 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -234,6 +296,14 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		48C95CA02624008900AAEBFE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				48C95CA72624008900AAEBFE /* SwiftFileAppUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BDF8F3B11CFBC89C00904797 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -244,6 +314,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		48C95CAA2624008900AAEBFE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BDF8F3B41CFBC89C00904797 /* SwiftFileApp */;
+			targetProxy = 48C95CA92624008900AAEBFE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		BDF8F3BC1CFBC89C00904797 /* Main.storyboard */ = {
@@ -265,6 +343,58 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		48C95CAB2624008900AAEBFE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SwiftFileAppUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = asia.vitalify.SwiftFileAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SwiftFileApp;
+			};
+			name = Debug;
+		};
+		48C95CAC2624008900AAEBFE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = SwiftFileAppUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = asia.vitalify.SwiftFileAppUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SwiftFileApp;
+			};
+			name = Release;
+		};
 		BDF8F3C51CFBC89C00904797 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -381,7 +511,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FKLWW9HU95;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftFileApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -402,7 +532,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FKLWW9HU95;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SwiftFileApp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -418,6 +548,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		48C95CAD2624008900AAEBFE /* Build configuration list for PBXNativeTarget "SwiftFileAppUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				48C95CAB2624008900AAEBFE /* Debug */,
+				48C95CAC2624008900AAEBFE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BDF8F3B01CFBC89C00904797 /* Build configuration list for PBXProject "SwiftFileApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

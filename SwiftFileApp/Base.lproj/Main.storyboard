@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -17,16 +16,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fbC-Zs-mWv">
-                                <rect key="frame" x="20" y="821" width="374" height="21"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbC-Zs-mWv">
+                                <rect key="frame" x="12" y="773" width="390" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <toolbar autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="EJX-cg-YOp">
-                                <rect key="frame" x="0.0" y="852" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1Ha-Rt-sBL">
+                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <accessibility key="accessibilityConfiguration" identifier="image"/>
+                            </imageView>
+                            <toolbar autoresizesSubviews="NO" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJX-cg-YOp">
+                                <rect key="frame" x="0.0" y="813" width="414" height="49"/>
                                 <items>
                                     <barButtonItem systemItem="camera" id="sMX-hZ-UQn">
                                         <connections>
@@ -41,12 +42,21 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="1Ha-Rt-sBL">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="852"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                            </imageView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="JGc-Ce-osD"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="EJX-cg-YOp" firstAttribute="leading" secondItem="JGc-Ce-osD" secondAttribute="leading" id="5M5-8n-aUU"/>
+                            <constraint firstItem="fbC-Zs-mWv" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="12" id="7SQ-3x-3m7"/>
+                            <constraint firstItem="JGc-Ce-osD" firstAttribute="bottom" secondItem="EJX-cg-YOp" secondAttribute="bottom" id="8oB-Y0-hrV"/>
+                            <constraint firstItem="EJX-cg-YOp" firstAttribute="top" secondItem="fbC-Zs-mWv" secondAttribute="bottom" constant="40" id="Fmp-w4-WzP"/>
+                            <constraint firstItem="EJX-cg-YOp" firstAttribute="trailing" secondItem="JGc-Ce-osD" secondAttribute="trailing" id="Zvb-57-sz0"/>
+                            <constraint firstItem="1Ha-Rt-sBL" firstAttribute="leading" secondItem="JGc-Ce-osD" secondAttribute="leading" id="dtc-NN-Zuj"/>
+                            <constraint firstItem="EJX-cg-YOp" firstAttribute="top" secondItem="1Ha-Rt-sBL" secondAttribute="bottom" id="e9l-5y-RsS"/>
+                            <constraint firstAttribute="trailing" secondItem="fbC-Zs-mWv" secondAttribute="trailing" constant="12" id="esN-QF-xEO"/>
+                            <constraint firstItem="1Ha-Rt-sBL" firstAttribute="top" secondItem="JGc-Ce-osD" secondAttribute="top" id="hOZ-8x-Vri"/>
+                            <constraint firstItem="1Ha-Rt-sBL" firstAttribute="trailing" secondItem="JGc-Ce-osD" secondAttribute="trailing" id="o1S-ae-P7U"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="cameraView" destination="1Ha-Rt-sBL" id="dDo-nS-DXb"/>

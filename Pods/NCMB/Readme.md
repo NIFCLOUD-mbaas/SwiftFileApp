@@ -10,20 +10,29 @@
 - データストア
 - 会員管理
 - ファイルストア
+- SNS連携(Sign In With Apple, Facebookのみ)
 
 といった機能をアプリから利用することが可能です。
 
 このSDKを利用する前に、ニフクラ mobile backendのアカウントを作成する必要があります。
 
 ## 動作環境
-
 - Swift version 4.2
-- iOS 12.0
-- Xcode10.x
+- iOS 10.x ～ iOS 14.x
+- Xcode 9.x ～ Xcode 12.x
+- armv7s, arm64, arm64e アーキテクチャ
+- iOS/Xcodeのバージョンに依って対応が必要となる可能性があります。詳細はニフクラ mobile backendのドキュメントをご覧ください。
 
-## 開発者検証バージョン
+※ 動作確認バージョン、開発環境につきましては今後、順次拡大する予定です。
 
-この SDK につきましては現在、デベロッパープレビュー版です。テクニカルサポート対応バージョンではありませんので御注意ください。
+## テクニカルサポート窓口対応バージョン
+
+テクニカルサポート窓口では、1年半以内にリリースされたSDKに対してのみサポート対応させていただきます。<br>
+定期的なバージョンのアップデートにご協力ください。<br>
+※なお、mobile backend にて大規模な改修が行われた際は、1年半以内のSDKであっても対応出来ない場合がございます。<br>
+その際は[informationブログ](https://mbaas.nifcloud.com/info/)にてお知らせいたします。予めご了承ください。
+
+- v1.0.0 ~ (※2020年9月時点)
 
 ### 現在未実装部分について
 
@@ -33,29 +42,31 @@
   * 副問い合わせ
   * 位置情報検索
 * プッシュ通知
-  * リッチプッシュ
-  * 絞り込み配信プッシュ通知の登録
-  * 配信期限の設定
+  * 位置情報連動配信
 * 会員管理
-  * SNS認証
-  * ロール制御
+  * SNS認証(Sign In With Apple, Facebook以外)
   * メールアドレス確認
 
 ## ライセンス
 
 このSDKのライセンスについては、LICENSEファイルをご覧ください。
 
+## SDK開発者向け資料
+
+このSDKの開発者向け資料として、FORDEVELOPER.md を用意しております。
+SDKの改修をされる際には、ご一読ください。
+
 ## 参考URL集
 
 - [ニフクラ mobile backend](https://mbaas.nifcloud.com/)
 - [ドキュメント](https://mbaas.nifcloud.com/doc/current/)
-- [ユーザーコミュニティ](https://github.com/NIFCloud-mbaas/UserCommunity)
+- [ユーザーコミュニティ](https://github.com/NIFCLOUD-mbaas/UserCommunity)
 
 ## サンプル
 
 ### 初期化
 
-```Swift
+```swift
     NCMB.initialize(
         applicationKey: /* アプリケーションキー */,
         clientKey: /* クライアントキー */)
@@ -65,7 +76,7 @@
 
 #### オブジェクトをデータストアに保存する
 
-```Swift
+```swift
     // testクラスのNCMBObjectを作成
     let object : NCMBObject = NCMBObject(className: "test")
 
@@ -90,7 +101,7 @@
 
 #### オブジェクトの取得
 
-```Swift
+```swift
     // testクラスへのNCMBObjectを設定
     let object : NCMBObject = NCMBObject(className: "test")
 
@@ -118,7 +129,7 @@
 
 #### データストアに対しての操作を設定する
 
-```Swift
+```swift
     // testクラスのNCMBObjectを作成
     let object : NCMBObject = NCMBObject(className: "test")
 
@@ -145,7 +156,7 @@
 
 #### オブジェクトの削除
 
-```Swift
+```swift
     // testクラスのNCMBObjectを作成
     let object : NCMBObject = NCMBObject(className: "test")
 
@@ -176,7 +187,7 @@
 
 ##### リレーションの新規作成
 
-```Swift
+```swift
 // testクラスへのNCMBObjectを設定
 let object : NCMBObject = NCMBObject(className: "test")
 let pointerA = NCMBPointer(className: "test", objectId: "84lywBlhwuA8SeUo")
@@ -199,7 +210,7 @@ object.saveInBackground(callback: { result in
 
 ##### リレーションの追加
 
-```Swift
+```swift
 // testクラスへのNCMBObjectを設定
 let object : NCMBObject = NCMBObject(className: "test")
 let pointerC = NCMBPointer(className: "test", objectId: "2tEvocmtRTllMgQT")
@@ -223,7 +234,7 @@ object.saveInBackground(callback: { result in
 ```
 ##### リレーションの削除
 
-```Swift
+```swift
 // testクラスへのNCMBObjectを設定
 let object : NCMBObject = NCMBObject(className: "test")
 let pointerC = NCMBPointer(className: "test", objectId: "2tEvocmtRTllMgQT")
@@ -248,7 +259,7 @@ object.saveInBackground(callback: { result in
 
 ##### リレーションの取得
 
-```Swift
+```swift
 // testクラスへのNCMBObjectを設定
 let object : NCMBObject = NCMBObject(className: "test")
 
@@ -271,7 +282,7 @@ object.fetchInBackground(callback: { result in
 ```
 #### オブジェクトの検索を行う
 
-```Swift
+```swift
     // クエリの作成
     var query : NCMBQuery<NCMBObject> = NCMBQuery.getQuery(className: "test")
     // フィールドの値が 42 と一致
@@ -290,7 +301,7 @@ object.fetchInBackground(callback: { result in
 
 #### 標準クラスを検索する場合
 
-```Swift
+```swift
     // 会員管理
     let userQuery : NCMBQuery<NCMBUser> = NCMBUser.query
 
@@ -311,7 +322,7 @@ object.fetchInBackground(callback: { result in
 
 and検索
 
-```Swift
+```swift
     // クエリの作成
     var query = NCMBQuery.getQuery(className: "test")
     query.where(field: "fieldA", equalTo: "Hello, NCMB!")
@@ -330,7 +341,7 @@ and検索
 
 or検索
 
-```Swift
+```swift
     // 一つ目のクエリの作成
     var query1 = NCMBQuery.getQuery(className: "test")
     query1.where(field: "fieldB", equalTo: "日本語の内容")
@@ -359,7 +370,7 @@ or検索
 
 `AppDelegate.swift` 内に記述
 
-```Swift
+```swift
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
 
         // 配信端末インスタンスの作成
@@ -383,7 +394,7 @@ or検索
 
 #### プッシュ通知をアプリから送信する
 
-```Swift
+```swift
     // プッシュ通知オブジェクトの作成
     let push : NCMBPush = NCMBPush()
     // メッセージの設定
@@ -409,7 +420,7 @@ or検索
 
 #### プッシュ通知のスケジューリング
 
-```Swift
+```swift
     // プッシュ通知オブジェクトの作成
     let push : NCMBPush = NCMBPush()
     // メッセージの設定
@@ -439,13 +450,40 @@ or検索
 
 #### 配信端末の絞り込み
 
-* TBD
+```Swift
+   // プッシュ通知オブジェクトの作成
+   let push : NCMBPush = NCMBPush()
+   // メッセージの設定
+   push.message = "プッシュ通知です"
+   push.action = "ReceiveActivity"
+   push.title = "testPush"
+   // android端末を送信対象に設定する
+   push.isSendToAndroid = true
+   // 即時配信を設定する
+   push.setImmediateDelivery()
+
+   var query : NCMBQuery<NCMBInstallation> = NCMBInstallation.query
+   //installationクラス（端末情報）に独自フィールドtakanokunに持っている値が ["d", "e", "f"] 配列に入っているデータを検索する条件を設定
+   var searchStringsArray: [String] = ["d", "e", "f"]
+   query.where(field: "takanokun", containedIn:  searchStringsArray)
+   push.searchCondition = query
+
+   push.sendInBackground(callback: { result in
+       switch result {
+       case .success:
+           print("登録に成功しました。プッシュID: \(push.objectId!)")
+       case let .failure(error):
+           print("登録に失敗しました: \(error)")
+           return;
+       }
+   })
+```
 
 ### 会員管理
 
 #### ユーザーの新規登録
 
-```Swift
+```swift
     //　Userインスタンスの生成
     let user = NCMBUser()
 
@@ -468,7 +506,7 @@ or検索
 
 #### 会員登録用のメールを要求する
 
-```Swift
+```swift
     // 会員登録用メールを要求する
     let result = NCMBUser.requestAuthenticationMailInBackground(mailAddress: "takanokun@example.com", callback: { result in
         switch result {
@@ -486,7 +524,7 @@ or検索
 
 ユーザー名、パスワードでのログイン
 
-```Swift
+```swift
     // ログイン状況の確認
     if let user = NCMBUser.currentUser {
         print("ログインしています。ユーザー: \(user.userName!)")
@@ -517,7 +555,7 @@ or検索
 
 メールアドレス、パスワードでのログイン
 
-```Swift
+```swift
     // ログイン状況の確認
     if let user = NCMBUser.currentUser {
         print("ログインしています。ユーザー: \(user.userName!)")
@@ -548,7 +586,7 @@ or検索
 
 #### ログアウト
 
-```Swift
+```swift
     // ログイン状況の確認
     if let user = NCMBUser.currentUser {
         print("ログインしています。ユーザー: \(user.userName!)")
@@ -557,7 +595,7 @@ or検索
     }
 
     // ログアウト
-    NCMBUser.logOut(callback: { result in
+    NCMBUser.logOutInBackground(callback: { result in
         switch result {
             case .success:
                 // ログアウトに成功した場合の処理
@@ -579,7 +617,7 @@ or検索
 
 #### パスワードのリセット
 
-```Swift
+```swift
     // パスワードのリセット
     NCMBUser.requestPasswordResetInBackground(mailAddress: "takanokun@example.com", callback: { result in
         switch result {
@@ -600,7 +638,7 @@ or検索
 
 #### 匿名認証
 
-```Swift
+```swift
     // ログイン状況の確認
     if let user = NCMBUser.currentUser {
         print("ログインしています。ユーザー: \(user.userName!)")
@@ -642,13 +680,42 @@ or検索
 
 #### 会員のグルーピング
 
-* TBD
+##### ロールの作成
+
+```swift
+// ロールの作成
+let freePlanRole : NCMBRole = NCMBRole.init(roleName: "freePlan");
+freePlanRole.save();
+let proPlanRole : NCMBRole = NCMBRole.init(roleName: "proPlan");
+proPlanRole.save();
+```
+
+##### 会員をロールに追加する
+
+```swift
+// ユーザーを作成
+let user: NCMBUser = NCMBUser.init();
+user.userName = "expertUser"
+user.password = "pass"
+user.signUp()
+// 登録済みユーザーを新規ロールに追加
+let role : NCMBRole = NCMBRole.init(roleName: "expertPlan");
+role.addUserInBackground(user: user, callback: { result in
+   switch result {
+   case .success:
+         print("保存に成功しました")
+   case let .failure(error):
+         print("保存に失敗しました: \(error)")
+         return;
+   }
+})
+```
 
 ### ファイルストア
 
 #### ファイルストアへのアップロード
 
-```Swift
+```swift
     // アップロード対象のデータ
     let data : Data
 
@@ -669,7 +736,7 @@ or検索
 
 #### ファイルを取得する
 
-```Swift
+```swift
     // ファイルオブジェクトの作成
     let file : NCMBFile = NCMBFile(fileName: "Takanokun.txt")
 
@@ -688,7 +755,7 @@ or検索
 
 #### ファイルの削除
 
-```Swift
+```swift
     // ファイルオブジェクトの作成
     let file : NCMBFile = NCMBFile(fileName: "Takanokun.txt")
 
@@ -708,12 +775,12 @@ or検索
 
 #### スクリプト実行
 
-```Swift
+```swift
     // スクリプトインスタンスの作成
     let script = NCMBScript(name: "myCoolScript.js", method: .get)
 
     // スクリプトの実行
-    script.executeInBackground(headers: [:], queries: ["name": "foo"], body: nil, callback: { result in
+    script.executeInBackground(headers: [:], queries: ["name": "foo"], body: [:], callback: { result in
         switch result {
             case let .success(data):
                 print("scriptSample 実行に成功しました: \(data)")
