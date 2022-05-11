@@ -13,9 +13,9 @@
 ![画像2](/readme-img/002.png)
 
 ## 動作環境
-* Mac OS X 10.10(Yosemite)
-* Xcode ver.10 以上
-* iPhone6 ver. 8.2
+* Mac OS 11.5.2(Big Sur)
+* Xcode ver. 13.2.1
+* iPhone 11 Pro Max (iOS15.2.1)
  * このサンプルアプリは、端末のカメラを使用するため、実機ビルドが必要です
 
 ※上記内容で動作確認をしています。
@@ -119,18 +119,17 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     // 「カメラ」ボタン押下時の処理
     @IBAction func cameraStart(sender: AnyObject) {
 
-        let sourceType: UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.Camera
         // カメラが利用可能か確認する
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.Camera) {
+        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera)) {
             let cameraPicker = UIImagePickerController()
-            cameraPicker.sourceType = sourceType
             cameraPicker.delegate = self
-            self.presentViewController(cameraPicker, animated: true, completion: nil)
-
+            cameraPicker.sourceType = .camera
+            cameraPicker.sourceType = UIImagePickerController.SourceType.camera
+            cameraPicker.allowsEditing = true
+            self.present(cameraPicker, animated: true, completion: nil)
         } else {
             print("エラーが発生しました")
             self.label.text = "エラーが発生しました"
-
         }
     }
 
