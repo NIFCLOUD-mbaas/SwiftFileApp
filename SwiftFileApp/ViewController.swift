@@ -99,12 +99,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                 case .success:
                     // 保存成功時の処理
                     print("保存に成功しました")
-                    self.label.text = "保存に成功しました"
-                    self.label.text = "保存中：100％"
+                    DispatchQueue.main.async {
+                        self.label.text = "保存に成功しました"
+//                        self.label.text = "保存中：100％"
+                    }
                 case let .failure(error):
                     // 保存失敗時の処理
                     print("保存に失敗しました。エラーコード：\(error)")
-                    self.label.text = "保存に失敗しました：\(error)"
+                    DispatchQueue.main.async {
+                        self.label.text = "保存に失敗しました：\(error)"
+                    }
                 }
             })
         })
