@@ -23,17 +23,14 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
     @IBAction func cameraStart(sender: AnyObject) {
         
         // カメラが利用可能か確認する
-        if(UIImagePickerController .isSourceTypeAvailable(UIImagePickerController.SourceType.camera))
-        {
+        if(UIImagePickerController.isSourceTypeAvailable(UIImagePickerController.SourceType.camera)) {
             let cameraPicker = UIImagePickerController()
             cameraPicker.delegate = self
             cameraPicker.sourceType = .camera
             cameraPicker.sourceType = UIImagePickerController.SourceType.camera
             cameraPicker.allowsEditing = true
             self.present(cameraPicker, animated: true, completion: nil)
-        }
-        else
-        {
+        } else {
             print("エラーが発生しました")
             self.label.text = "エラーが発生しました"
         }
@@ -48,9 +45,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         }
         picker.dismiss(animated: true, completion: nil)
     }
-    
-
-
     
     // 撮影がキャンセルされた時に呼ばれる
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -69,7 +63,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             self.label.text = "画像がありません"
             
             return
-            
         }
         
         // 画像をリサイズする
@@ -87,7 +80,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
             // 入力したテキストをファイル名に指定
             let fileName = alert.textFields![0].text! + ".png"
 
-            
             // ACL設定（読み書き可）
             var acl = NCMBACL.empty
             acl.put(key: NCMBACL.ACL_PUBLIC, readable: true, writable: true)
@@ -99,12 +91,16 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
                 case .success:
                     // 保存成功時の処理
                     print("保存に成功しました")
-                    self.label.text = "保存に成功しました"
-                    self.label.text = "保存中：100％"
+                    DispatchQueue.main.async {
+                        self.label.text = "保存に成功しました"
+//                        self.label.text = "保存中：100％"
+                    }
                 case let .failure(error):
                     // 保存失敗時の処理
                     print("保存に失敗しました。エラーコード：\(error)")
-                    self.label.text = "保存に失敗しました：\(error)"
+                    DispatchQueue.main.async {
+                        self.label.text = "保存に失敗しました：\(error)"
+                    }
                 }
             })
         })
@@ -117,7 +113,6 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         })
         
         present(alert, animated: true, completion: nil)
-        
     }
     
     // 画像をリサイズする処理
@@ -129,14 +124,12 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         UIGraphicsEndImageContext()
         
         return resizeImage
-        
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
 
 }
 
