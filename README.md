@@ -13,9 +13,9 @@
 ![画像2](/readme-img/002.png)
 
 ## 動作環境
-* Mac OS 11.5.2(Big Sur)
-* Xcode ver. 13.2.1
-* iPhone 11 Pro Max (iOS15.2.1)
+* Mac OS 13.4.1(Ventura)
+* Xcode ver. 15.0.0
+* iPhone 11 Pro Max (iOS17)
 * このサンプルアプリは、端末のカメラを使用するため、実機ビルドが必要です
 
 ※上記内容で動作確認をしています。
